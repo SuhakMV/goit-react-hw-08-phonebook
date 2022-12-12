@@ -1,8 +1,8 @@
-import { deleteContact } from 'redux/contacts/operations';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { Contact } from 'components/Contact/Contact';
 
-const ContactList = () => {
-  const dispatch = useDispatch();
+export const ContactList = () => {
+  //const dispatch = useDispatch();
   const { items, filter } = useSelector(state => state.contacts);
 
   let foundContacts = items.filter(item =>
@@ -14,14 +14,7 @@ const ContactList = () => {
       <ul>
         {items.length > 0 ? (
           foundContacts.map(({ id, name, number }) => (
-            <li key={id}>
-              <p>
-                {name}: {number}
-              </p>
-              <button type="submit" onClick={() => dispatch(deleteContact(id))}>
-                Delete
-              </button>
-            </li>
+            <Contact key={id} id={id} name={name} number={number} />
           ))
         ) : (
           <p>Contact list is empty</p>
@@ -30,5 +23,3 @@ const ContactList = () => {
     </div>
   );
 };
-
-export default ContactList;

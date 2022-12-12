@@ -1,9 +1,9 @@
 import Home from 'page/Home';
 import Login from 'page/Login';
 import Contacts from 'page/Contacts';
+import Register from 'page/Register';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
-import { RegisterForm } from './RegisterForm/RegisterForm';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
 import { useDispatch } from 'react-redux';
@@ -29,7 +29,7 @@ export const App = () => {
           element={
             <RestrictedRoute
               redirectTo="/contacts"
-              component={<RegisterForm />}
+              component={<Register />}
             />
           }
         />
