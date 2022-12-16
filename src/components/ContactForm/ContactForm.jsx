@@ -1,72 +1,35 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
 import { addContact } from 'redux/contacts/operations';
 import { selectAllContacts } from 'redux/contacts/selectors';
-
 import css from './ContactForm.module.css';
 
 export const ContactForm = () => {
-
   const items = useSelector(selectAllContacts);
   const dispatch = useDispatch();
 
-  const [state, setState] = useState({
-    name: '',
-    number: '',
-  });
-
-  function handleChange(evt) {
-    const value = evt.target.value;
-    setState({
-      ...state,
-      [evt.target.name]: value,
-    });
-  }
-
   const handleSubmit = e => {
     e.preventDefault();
-    let savedName = false;
-
-    items.forEach(element => {
-      if (element.name.toLowerCase() === state.name.toLowerCase()) {
-        alert(`${state.name} is already in contacts`);
-        savedName = true;
-        setState({
-          name: '',
-          number: '',
-        });
+    const form = e.currentTarget;
+    items.forEach(item => {
+      if (item.name.toLowerCase() === form.elements.name.value.toLowerCase()) {
+        alert(`${form.elements.name.value} is already in contacts`);
+      } else {
+        dispatch(
+          addContact({
+            name: form.elements.name.value,
+            number: form.elements.number.value,
+          })
+        );
+        form.reset();
       }
     });
-    if (savedName) {
-      return;
-    }
-
-    dispatch(addContact(state));
-    setState({
-      name: '',
-      number: '',
-    });
   };
-
-  /* const handleSubmit = e => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    dispatch(
-      addContact({
-        name: form.elements.name.value,
-        number: form.elements.number.value,
-      })
-    );
-    form.reset();
-  }; */
 
   return (
     <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
       <label className={css.label}>
         Name
         <input
-        value={state.name}
-        onChange={handleChange}
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -77,8 +40,6 @@ export const ContactForm = () => {
       <label className={css.label}>
         Number
         <input
-        value={state.number}
-        onChange={handleChange}
           type="text"
           name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -86,7 +47,7 @@ export const ContactForm = () => {
           required
         />
       </label>
-      <button type="submit">Add contact</button>
+      <button type="submit">Add contact'</button>
     </form>
   );
 };
