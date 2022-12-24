@@ -23,11 +23,16 @@ export const contactSlice = createSlice({
     isLoading: false,
     error: null,
     filter: '',
+    showModal: false,
   },
 
   reducers: {
     setFilter(state, action) {
       state.filter = action.payload.toLowerCase();
+    },
+
+    setShowModal(state, action) {
+      state.showModal = action.payload;
     },
   },
 
@@ -58,7 +63,7 @@ export const contactSlice = createSlice({
 
     [updateContact.pending]: handlePending,
     [updateContact.fulfilled]: (state, action) => {
-      state.items.push(action.payload);
+      state.items = state.items.filter(item => item.id === action.payload.id);
       state.isLoading = false;
       state.error = null;
     },
@@ -67,6 +72,6 @@ export const contactSlice = createSlice({
   },
 });
 
-export const { setFilter } = contactSlice.actions;
+export const { setFilter, setShowModal } = contactSlice.actions;
 
 export const contactReduser = contactSlice.reducer;

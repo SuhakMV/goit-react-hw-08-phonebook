@@ -1,0 +1,81 @@
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1200;
+}
+
+.Modal {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  min-width: 320px;
+  padding: 15px;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-color: lightslategrey;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: inherit;
+  margin-left: auto;
+}
+
+.label {
+  display: flex;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.button {
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  background-color: #3f51b5;
+  color: #fff;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #303f9f;
+}
+
+.button:active {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+.text {
+  font-size: 18px;
+  font-weight: 700;
+  color: azure;
+  margin: 0;
+  margin-right: auto;
+}
+
+.close {
+  display: flex;
+  max-width: max-content;
+  justify-content: flex-end;
+  font-size: 25px;
+  font-weight: 600;
+  margin-left: auto;
+  padding: 0px 0px 10px 10px;
+  cursor: pointer;
+}
+
+.close:hover,
+.close.focus {
+  color: red;
+}
