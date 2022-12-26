@@ -9,7 +9,7 @@ import css from './Modal.module.css';
 export const Modal = () => {
   const dispatch = useDispatch();
   const showModal = () => dispatch(setShowModal(false));
-  const updateId = useSelector(selectUpdateContactId);
+  const id = useSelector(selectUpdateContactId);
 
   useEffect(() => {
     const handleKeyDown = e => {
@@ -30,10 +30,7 @@ export const Modal = () => {
     const form = e.currentTarget;
     const name = form.elements.name.value;
     const number = form.elements.number.value;
-    dispatch(
-      updateContact({
-        id: updateId, name: name, number: number
-      })
+    dispatch(updateContact({id})
     );
     form.reset();
     showModal();
