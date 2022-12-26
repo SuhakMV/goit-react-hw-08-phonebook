@@ -24,6 +24,7 @@ export const contactSlice = createSlice({
     error: null,
     filter: '',
     showModal: false,
+    updateContactId: '',
   },
 
   reducers: {
@@ -34,6 +35,10 @@ export const contactSlice = createSlice({
     setShowModal(state, action) {
       state.showModal = action.payload;
     },
+
+    setUpdateContactId(state, action) {
+      state.updateContactId = action.payload;
+    }
   },
 
   extraReducers: {
@@ -72,6 +77,6 @@ export const contactSlice = createSlice({
   },
 });
 
-export const { setFilter, setShowModal } = contactSlice.actions;
+export const { setFilter, setShowModal, setUpdateContactId } = contactSlice.actions;
 
 export const contactReduser = contactSlice.reducer;

@@ -1,13 +1,15 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateContact } from 'redux/contacts/operations';
 import { setShowModal } from 'redux/contacts/slice';
 import { useEffect } from 'react';
-
+import { selectUpdateContactId } from 'redux/contacts/selectors';
 import css from './Modal.module.css';
 
-export const Modal = id => {
+
+export const Modal = () => {
   const dispatch = useDispatch();
   const showModal = () => dispatch(setShowModal(false));
+  const updateId = useSelector(selectUpdateContactId);
 
   useEffect(() => {
     const handleKeyDown = e => {
@@ -30,9 +32,7 @@ export const Modal = id => {
     const number = form.elements.number.value;
     dispatch(
       updateContact({
-        id,
-        name,
-        number,
+        id: updateId, name: name, number: number
       })
     );
     form.reset();
