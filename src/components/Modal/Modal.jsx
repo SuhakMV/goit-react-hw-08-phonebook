@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 import { selectUpdateContactId } from 'redux/contacts/selectors';
 import css from './Modal.module.css';
 
-
 export const Modal = () => {
   const dispatch = useDispatch();
   const showModal = () => dispatch(setShowModal(false));
@@ -28,10 +27,14 @@ export const Modal = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
-    const name = form.elements.name.value;
-    const number = form.elements.number.value;
-    dispatch(updateContact({id})
-    );
+
+    //id: id,
+    const contact = {
+      name: form.elements.name.value,
+      number: form.elements.number.value,
+    };
+
+    dispatch(updateContact({ id: id, ...contact }));
     form.reset();
     showModal();
   };

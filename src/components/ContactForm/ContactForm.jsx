@@ -10,19 +10,25 @@ export const ContactForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
-    items.forEach(item => {
-      if (item.name.toLowerCase() === form.elements.name.value.toLowerCase()) {
+    let savedName = false;
+    items.forEach(element => {
+      if (
+        element.name.toLowerCase() === form.elements.name.value.toLowerCase()
+      ) {
         alert(`${form.elements.name.value} is already in contacts`);
-      } else {
-        dispatch(
-          addContact({
-            name: form.elements.name.value,
-            number: form.elements.number.value,
-          })
-        );
-        form.reset();
+        savedName = true;
       }
     });
+    if (savedName) {
+      return;
+    }
+    dispatch(
+      addContact({
+        name: form.elements.name.value,
+        number: form.elements.number.value,
+      })
+    );
+    form.reset();
   };
 
   return (
