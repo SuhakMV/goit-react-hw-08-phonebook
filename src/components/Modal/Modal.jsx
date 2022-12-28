@@ -28,13 +28,13 @@ export const Modal = () => {
     e.preventDefault();
     const form = e.currentTarget;
 
-    //id: id,
     const contact = {
+      id: id,
       name: form.elements.name.value,
       number: form.elements.number.value,
     };
 
-    dispatch(updateContact({ id: id, ...contact }));
+    dispatch(updateContact(contact));
     form.reset();
     showModal();
   };

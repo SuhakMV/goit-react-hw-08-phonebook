@@ -38,7 +38,7 @@ export const contactSlice = createSlice({
 
     setUpdateContactId(state, action) {
       state.updateContactId = action.payload;
-    }
+    },
   },
 
   extraReducers: {
@@ -68,12 +68,10 @@ export const contactSlice = createSlice({
 
     [updateContact.pending]: handlePending,
     [updateContact.fulfilled]: (state, action) => {
-      state.items = state.items.map(item => item.id === state.action.payload.id ? action.payload.contact : item);
-      /* const index = state.items.findIndex((
-        item => item.id === action.payload.id));
-        console.log(index);
-      state.items[index].name = action.payload.name;
-      state.items[index].number = action.payload.number; */
+    
+      state.items = state.items.map((item) =>
+        item.id === action.payload.id ? action.payload : item);
+      
       state.isLoading = false;
       state.error = null;
     },
@@ -82,6 +80,7 @@ export const contactSlice = createSlice({
   },
 });
 
-export const { setFilter, setShowModal, setUpdateContactId } = contactSlice.actions;
+export const { setFilter, setShowModal, setUpdateContactId } =
+  contactSlice.actions;
 
 export const contactReduser = contactSlice.reducer;

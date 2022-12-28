@@ -3,7 +3,7 @@ import { ContactForm } from 'components/ContactForm/ContactForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Modal } from 'components/Modal/Modal';
 import { useEffect } from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/contacts/operations';
 import { selectLoading, selectShowModal } from 'redux/contacts/selectors';
@@ -19,12 +19,14 @@ const Contacts = () => {
 
   return (
     <>
-      <Helmet>Your Contacts</Helmet>
-      <ContactForm />
-      <ContactFilter />
-      <div>{isLoading && 'Request in progress...'}</div>
-      <ContactList />
-      {showModal && <Modal />}
+      <HelmetProvider>
+        <Helmet>Your Contacts</Helmet>
+        <ContactForm />
+        <ContactFilter />
+        <div>{isLoading && 'Request in progress...'}</div>
+        <ContactList />
+        {showModal && <Modal />}
+      </HelmetProvider>
     </>
   );
 };
