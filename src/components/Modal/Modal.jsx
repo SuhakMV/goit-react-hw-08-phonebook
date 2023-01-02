@@ -40,7 +40,7 @@ export const Modal = () => {
   };
 
   return (
-    <div className={css.Overlay}>
+    <div className={css.Overlay} onClick={showModal}>
       <div className={css.Modal}>
         <span className={css.close} onClick={showModal}>
           &times;
