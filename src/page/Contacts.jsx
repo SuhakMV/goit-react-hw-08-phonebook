@@ -7,6 +7,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/contacts/operations';
 import { selectLoading, selectShowModal } from 'redux/contacts/selectors';
+import { Loader } from 'components/Loader/Loader';
 
 const Contacts = () => {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ const Contacts = () => {
         <Helmet>Your Contacts</Helmet>
         <ContactForm />
         <ContactFilter />
-        <div>{isLoading && 'Request in progress...'}</div>
+        <div>{isLoading && <Loader/>}</div>
         <ContactList />
         {showModal && <Modal />}
       </HelmetProvider>

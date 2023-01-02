@@ -1,39 +1,43 @@
 .wrapper {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 4px 20px;
-    border: 1px solid #2a2a2a;
-    background-color: darkgrey;
-    border-radius: 22px;
-  }
-  
-  .text {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-  
-  .button {
-    border: none;
-    font: inherit;
-    cursor: pointer;
-    outline: none;
-    margin-left: auto;
-    border-radius: 4px;
-    padding: 8px 12px;
-    background-color: #3f51b5;
-    color: #fff;
-  }
-  
-  .button:hover,
-  .button:focus {
-    background-color: #303f9f;
-  }
-  
-  .button:active {
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  }
+  max-width: 50%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 22px;
+  margin-bottom: 8px;
+}
 
-  .button:last-child {
-    margin-left: 0;
-  }
+.text {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.text::before {
+  content: '\1F4DE'' ';
+}
+
+.button {
+  display: flex;
+  text-decoration: none;
+  padding: 12px;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 22px;
+  background-color: darkseagreen;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border: 0;
+  margin-left: auto;
+}
+
+.button:last-child {
+  margin-left: 0;
+  background-color: darksalmon;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #fff;
+  color: black;
+}

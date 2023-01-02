@@ -34,8 +34,8 @@ export const ContactForm = () => {
   return (
     <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
       <label className={css.label}>
-        Name
-        <input
+        <span className={css.text}>Name</span>
+        <input className={css.input}
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -44,8 +44,8 @@ export const ContactForm = () => {
         />
       </label>
       <label className={css.label}>
-        Number
-        <input
+        <span className={css.text}>Number</span>
+        <input className={css.input}
           type="text"
           name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -53,7 +53,7 @@ export const ContactForm = () => {
           required
         />
       </label>
-      <button type="submit">Add contact</button>
+      <button className={css.button} type="submit">Add contact</button>
     </form>
   );
 };

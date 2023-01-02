@@ -48,7 +48,7 @@ export const Modal = () => {
         <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
           <label className={css.label}>
             <p className={css.text}>Name</p>
-            <input
+            <input className={css.input}
               type="text"
               name="name"
               pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -59,7 +59,7 @@ export const Modal = () => {
           <label className={css.label}>
             <p className={css.text}>Number</p>
 
-            <input
+            <input className={css.input}
               type="text"
               name="number"
               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"

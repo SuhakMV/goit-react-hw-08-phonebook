@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { current } from 'redux/auth/operations';
 import { useAuth } from 'hooks';
 import { lazy, useEffect } from 'react';
+import { Loader } from './Loader/Loader';
 
 const HomePage = lazy(() => import('../page/Home'));
 const RegisterPage = lazy(() => import('../page/Register'));
@@ -21,7 +22,7 @@ export const App = () => {
   }, [dispatch]);
 
   return isCurrent ? (
-    <b>Refreshing user...</b>
+    <Loader />
   ) : (
     <Routes>
       <Route patch="/" element={<Layout />}>
