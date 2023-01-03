@@ -10,15 +10,17 @@ export const ContactFilter = () => {
   };
 
   return (
-    <form className={css.form}>
-      <label className={css.label}>
-        <span className={css.text}>Find contacts by name:</span>
-        <input
-          className={css.input}
-          type="name"
-          onChange={onFilterChange}
-        ></input>
-      </label>
-    </form>
+    <div className={css.box}>
+      <form className={css.form}>
+        <label className={css.label}>
+          <span className={css.text}>Find contacts by name:</span>
+          <input
+            className={css.input}
+            type="name"
+            onChange={onFilterChange}
+          ></input>
+        </label>
+      </form>
+    </div>
   );
 };

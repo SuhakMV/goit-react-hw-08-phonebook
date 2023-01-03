@@ -1,5 +1,6 @@
 .link {
   display: inline-block;
+  align-items: initial;
   text-decoration: none;
   padding: 12px;
   font-weight: 700;
@@ -8,6 +9,14 @@
   background-color: cadetblue;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
+@media screen and (max-width: 420px) {
+  .link:nth-child(1) {
+    margin-bottom: 6px;
+  }
+}
+  
+
 
 .link:nth-child(1) {
   margin-right: 10px;

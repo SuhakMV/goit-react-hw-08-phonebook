@@ -1,8 +1,12 @@
-.form {
+.box {
   border: 1px solid #2a363b;
   border-radius: 26px;
   padding: 10px 26px;
   margin-bottom: 16px;
+}
+
+.form {
+  max-width: 320px;
 }
 
 .label {
@@ -13,7 +17,6 @@
 }
 
 .input {
-  max-width: 35%;
   padding: 5px 14px;
   border-radius: 14px;
 }
@@ -25,7 +28,6 @@
   outline: none;
 }
 
-
 .button {
   display: flex;
   text-decoration: none;
@@ -36,8 +38,8 @@
   background-color: darksalmon;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border: 0;
-  margin-left: 285px;
-  margin-right: auto;
+  cursor: pointer;
+  margin-left: auto;
 }
 
 .button:hover,
@@ -49,4 +51,3 @@
 .text {
   padding: 0 0 5px 10px;
 }
-
