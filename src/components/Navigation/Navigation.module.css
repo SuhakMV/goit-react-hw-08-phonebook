@@ -10,7 +10,7 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 425px) {
   .link:nth-child(1) {
     margin-bottom: 6px;
   }
